@@ -16,6 +16,7 @@ import org.firstinspires.ftc.teamcode.hardware.vuforia.Vuforia;
 public class DrawLineTest extends LinearOpMode {
     Vuforia vuforia;
     Bitmap image;
+    int current_x;
 
 
     @Override
@@ -25,7 +26,7 @@ public class DrawLineTest extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        //current_x = 0;
+        current_x = 0;
         //current_y = 0;
         //previous_x = 0;
         //previous_y = 0;
