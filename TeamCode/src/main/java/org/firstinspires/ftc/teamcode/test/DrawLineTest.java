@@ -17,6 +17,10 @@ public class DrawLineTest extends LinearOpMode {
     Vuforia vuforia;
     Bitmap image;
     int current_x;
+    int current_y;
+    int previous_x;
+    int previous_y;
+
 
 
     @Override
@@ -27,9 +31,10 @@ public class DrawLineTest extends LinearOpMode {
         waitForStart();
 
         current_x = 0;
-        //current_y = 0;
-        //previous_x = 0;
-        //previous_y = 0;
+        current_y = 0;
+        previous_x = 0;
+        previous_y = 0;
+
 
         while( opModeIsActive() ) {
 
@@ -45,9 +50,15 @@ public class DrawLineTest extends LinearOpMode {
             // 3) store the values in a list if not the same previous_x, previous_y
             // https://stackoverflow.com/questions/42610637/how-to-build-an-array-of-arraylistinteger-in-java
             // https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
+            if(current_x != previous_x && current_y != previous_y){
+                x_pathList.add(current_x);
+                y_pathList.add(current_y);
+            }
 
             // 4) update previous_x and previous_y because the x, y has been saved
             // to the list
+            previous_x = current_x;
+            previous_y = current_y;
 
 
             // 5) draw the joystick values with call to drawPixelfromList
