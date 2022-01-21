@@ -44,15 +44,40 @@ public class DrawLineTest extends LinearOpMode {
             // reference:  gamepad1.left_stick_y gamepad1.leftstick_x
             // whenever the |joystick_x| > 0, the update current_x++;
             // whenever the |joystick_y| > 0, the update current_x++;
+            if (gamepad1.left_stick_x < 0){
+                current_x++;
+                if (current_x > image.getWidth()){
+                    current_x = image.getWidth() - 1;
+                }
+            }
+            if (gamepad1.left_stick_x > 0){
 
+                current_x--;
+                if(current_x < 0){
+                    current_x = 0;
+                }
+            }
+            if (gamepad1.left_stick_y < 0){
+                current_y++;
+                if (current_y > image.getHeight()){
+                    current_y = image.getHeight() - 1;
+                }
+            }
+            if (gamepad1.left_stick_y > 0){
+
+                current_y--;
+                if(current_y < 0){
+                    current_y = 0;
+                }
+            }
 
 
             // 3) store the values in a list if not the same previous_x, previous_y
             // https://stackoverflow.com/questions/42610637/how-to-build-an-array-of-arraylistinteger-in-java
             // https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
             if(current_x != previous_x && current_y != previous_y){
-                x_pathList.add(current_x);
-                y_pathList.add(current_y);
+                ///x_pathList.add(current_x);
+                //y_pathList.add(current_y);
             }
 
             // 4) update previous_x and previous_y because the x, y has been saved
