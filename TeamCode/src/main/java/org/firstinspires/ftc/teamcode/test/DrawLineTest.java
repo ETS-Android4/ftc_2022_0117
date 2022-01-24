@@ -95,12 +95,9 @@ public class DrawLineTest extends LinearOpMode {
             previous_x = current_x;
             previous_y = current_y;
 
-
+            drawPixelfromList();
             // 5) draw the joystick values with call to drawPixelfromList
             // and update the image
-            // white
-
-            image.setPixel(current_x, current_y, Color.rgb(254, 254, 254));
             imageViewer.setImage(image);
             telemetry.addData(" x = ",current_x );
             telemetry.addData(" y = ",current_y );
@@ -110,7 +107,11 @@ public class DrawLineTest extends LinearOpMode {
     }
 
     public void drawPixelfromList( ) {
-        // bitmap.setPixel( x, y, Color.rgb(255, 255, 0));   // yellow color
+        image.setPixel( current_x, current_y, Color.rgb(255, 255, 255));   // yellow color
+        image.setPixel( current_x-1, current_y, Color.rgb(255, 255, 0));
+        image.setPixel( current_x+1, current_y, Color.rgb(255, 255, 0));
+        image.setPixel( current_x, current_y-1, Color.rgb(255, 255, 0));
+        image.setPixel( current_x, current_y+1, Color.rgb(255, 255, 0));
         // This funcction cycles thru the list and calls bitmap.setPixel
         // for each item in the list
     }
