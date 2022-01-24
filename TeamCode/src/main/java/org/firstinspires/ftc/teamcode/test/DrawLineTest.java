@@ -7,7 +7,9 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.hardware.image.ImageViewer;
 import org.firstinspires.ftc.teamcode.hardware.vuforia.Vuforia;
+import org.firstinspires.ftc.teamcode.hardware.vuforia.VuforiaImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +17,12 @@ import java.util.List;
 //import org.firstinspires.ftc.teamcode.framework.abstractopmodes.AbstractOpMode;
 
 @TeleOp(name = "DriveLineTest ", group = "Sensor")
-@Disabled
+//@Disabled
 public class DrawLineTest extends LinearOpMode {
-    Vuforia vuforia;
+    VuforiaImpl vuforia;
+    ImageViewer imageViewer;
     Bitmap image;
+
     int current_x;
     int current_y;
     int previous_x;
@@ -28,7 +32,8 @@ public class DrawLineTest extends LinearOpMode {
 
     @Override
     public void runOpMode( ) {
-        vuforia = new Vuforia(hardwareMap, true);
+        vuforia = new VuforiaImpl(hardwareMap, false,true);
+        imageViewer = new ImageViewer(vuforia.getRotation());
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -93,8 +98,12 @@ public class DrawLineTest extends LinearOpMode {
 
             // 5) draw the joystick values with call to drawPixelfromList
             // and update the image
+            // white
 
-
+            image.setPixel(current_x, current_y, Color.rgb(254, 254, 254));
+            imageViewer.setImage(image);
+            telemetry.addData(" x = ",current_x );
+            telemetry.addData(" y = ",current_y );
             telemetry.update();
         }
 

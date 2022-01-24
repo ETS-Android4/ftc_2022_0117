@@ -20,8 +20,8 @@ import java.util.Collections;
 
 public class VisionTest extends LinearOpMode {
 
-    ImageViewer imageViewer;
     VuforiaImpl vuforia;
+    ImageViewer imageViewer;
     int currentRow = -1;
 
     @Override
