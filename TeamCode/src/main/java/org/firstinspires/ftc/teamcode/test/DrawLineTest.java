@@ -9,6 +9,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.hardware.vuforia.Vuforia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //import org.firstinspires.ftc.teamcode.framework.abstractopmodes.AbstractOpMode;
 
 @TeleOp(name = "DriveLineTest ", group = "Sensor")
@@ -73,11 +76,13 @@ public class DrawLineTest extends LinearOpMode {
 
 
             // 3) store the values in a list if not the same previous_x, previous_y
+            List x_pathList = new ArrayList();
+            List y_pathList = new ArrayList();
             // https://stackoverflow.com/questions/42610637/how-to-build-an-array-of-arraylistinteger-in-java
             // https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
             if(current_x != previous_x && current_y != previous_y){
-                ///x_pathList.add(current_x);
-                //y_pathList.add(current_y);
+                x_pathList.add(current_x);
+                y_pathList.add(current_y);
             }
 
             // 4) update previous_x and previous_y because the x, y has been saved
