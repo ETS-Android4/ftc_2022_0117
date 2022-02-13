@@ -107,11 +107,10 @@ public class DrawLineTest extends LinearOpMode {
     }
 
     public void drawPixelfromList( ) {
-        setPixel( current_x, current_y, 255, 255, 255);   // yellow color
-        setPixel( current_x-1, current_y, 255, 255, 0);
-        setPixel( current_x+1, current_y, 255, 255, 0);
-        setPixel( current_x, current_y-1, 255, 255, 0);
-        setPixel( current_x, current_y+1, 255, 255, 0);
+        for(int j = -4;j <= 4; j++){
+            setPixel(current_x,current_y+j, 255, 255, 255);
+            setPixel(current_x+j,current_y, 255, 255, 255);
+        }
         // This funcction cycles thru the list and calls bitmap.setPixel
         // for each item in the list
     }
@@ -128,7 +127,7 @@ public class DrawLineTest extends LinearOpMode {
         if(input_y> image.getHeight()){
             input_y = image.getHeight();
         }
-        image.setPixel( current_x, current_y, Color.rgb(red_value, green_value, blue_value));   // yellow color
+        image.setPixel( input_x, input_y, Color.rgb(red_value, green_value, blue_value));   // yellow color
     }
 
 
