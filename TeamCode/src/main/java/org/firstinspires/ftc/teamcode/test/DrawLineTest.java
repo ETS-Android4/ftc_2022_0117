@@ -95,7 +95,7 @@ public class DrawLineTest extends LinearOpMode {
             previous_x = current_x;
             previous_y = current_y;
 
-            drawPixelfromList();
+            drawCross(30);
             // 5) draw the joystick values with call to drawPixelfromList
             // and update the image
             imageViewer.setImage(image);
@@ -106,8 +106,8 @@ public class DrawLineTest extends LinearOpMode {
 
     }
 
-    public void drawPixelfromList( ) {
-        for(int j = -4;j <= 4; j++){
+    public void drawCross(int length) {
+        for(int j = -length;j <= length; j++){
             setPixel(current_x,current_y+j, 255, 255, 255);
             setPixel(current_x+j,current_y, 255, 255, 255);
         }
